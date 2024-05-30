@@ -21,13 +21,10 @@
         .button {
             width: 200px;
             cursor: pointer;
+            margin-bottom: 20px; /* Add some space between button and animated image */
         }
         .animated {
             width: 100px;
-            position: absolute;
-            bottom: 10px; /* Adjusted to position the image lower */
-            left: 50%;
-            transform: translateX(-50%);
             animation: fade 2s infinite;
         }
         @keyframes fade {
