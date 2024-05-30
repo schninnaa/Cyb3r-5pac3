@@ -39,7 +39,7 @@
             50% { opacity: 0; }
         }
         #model-viewer-container {
-            display: none;
+            display: flex;
             width: 100%;
             height: 80vh; /* Increased height */
             flex-direction: column;
@@ -93,7 +93,7 @@
         .blinking {
             font-weight: bold;
             animation: blink 1s step-start infinite;
-            font-size: 1.0em; /* Smaller size for blinking text */
+            font-size: 0.8em; /* Smaller size for blinking text */
         }
 
         @keyframes blink {
@@ -149,10 +149,6 @@
     </style>
 </head>
 <body>
-    <div class="container" id="intro">
-        <img src="buttonsilver.png" class="button" id="enterButton" alt="Enter">
-        <img src="dangerous.png" class="animated" alt="Animated">
-    </div>
     <div id="model-viewer-container">
         <div class="header1">CYB3R 5PAC3</div>
         <div class="header2">
@@ -169,28 +165,23 @@
 
     <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
     <script>
-        document.getElementById('enterButton').addEventListener('click', function() {
-            document.getElementById('intro').style.display = 'none';
-            document.getElementById('model-viewer-container').style.display = 'flex';
+        // Function to start the countdown from 12:45:53
+        let totalSeconds = 12 * 3600 + 45 * 60 + 53;
 
-            // Function to start the countdown from 12:45:53
-            let totalSeconds = 12 * 3600 + 45 * 60 + 53;
+        function updateCountdown() {
+            const hours = String(Math.floor(totalSeconds / 3600)).padStart(2, '0');
+            const minutes = String(Math.floor((totalSeconds % 3600) / 60)).padStart(2, '0');
+            const seconds = String(totalSeconds % 60).padStart(2, '0');
+            document.getElementById('eta2').textContent = `-${hours}:${minutes}:${seconds}`;
 
-            function updateCountdown() {
-                const hours = String(Math.floor(totalSeconds / 3600)).padStart(2, '0');
-                const minutes = String(Math.floor((totalSeconds % 3600) / 60)).padStart(2, '0');
-                const seconds = String(totalSeconds % 60).padStart(2, '0');
-                document.getElementById('eta2').textContent = `-${hours}:${minutes}:${seconds}`;
-
-                if (totalSeconds > 0) {
-                    totalSeconds -= 1;
-                    requestAnimationFrame(updateCountdown);
-                }
+            if (totalSeconds > 0) {
+                totalSeconds -= 1;
+                requestAnimationFrame(updateCountdown);
             }
+        }
 
-            // Update the countdown every second
-            requestAnimationFrame(updateCountdown);
-        });
+        // Start the countdown immediately
+        requestAnimationFrame(updateCountdown);
     </script>
 </body>
 </html>
