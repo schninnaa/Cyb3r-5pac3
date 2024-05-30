@@ -95,7 +95,7 @@
         .blinking {
             font-weight: bold;
             animation: blink 1s step-start infinite;
-            font-size: 0.8em; /* Smaller size for blinking text */
+            font-size: 0.9em; /* Smaller size for blinking text */
         }
 
         @keyframes blink {
@@ -106,9 +106,10 @@
 
         .floating-button {
             position: absolute;
-            top: 0;
+            top: 20%; /* Lowered position by 20% */
             left: 0;
-            width: 50px; /* Adjust width as needed */
+            width: 100px; /* Increased width */
+            height: auto; /* Maintain aspect ratio */
             cursor: pointer;
         }
         @keyframes float {
@@ -167,7 +168,7 @@
     <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
     <script>
         // Function to start the countdown from 12:45:53
-        let totalSeconds = 12 * 3600 + 45 * 60 + 53;
+        let totalSeconds = 23 * 3600 + 45 * 60 + 53;
 
         function updateCountdown() {
             const hours = String(Math.floor(totalSeconds / 3600)).padStart(2, '0');
