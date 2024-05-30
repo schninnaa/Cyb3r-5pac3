@@ -75,7 +75,7 @@
     </div>
     <div id="model-viewer">
         <div class="header1">CYB3R 5PAC3</div>
-        <div class="header2">ETA: <span id="eta"></span></div>
+        <div class="header2">OBJECT ETA- <span id="eta"></span></div>
         <model-viewer src="model.glb" alt="3D model" ar ar-modes="scene-viewer quick-look" camera-controls></model-viewer>
     </div>
 
@@ -85,9 +85,15 @@
             document.getElementById('intro').style.display = 'none';
             document.getElementById('model-viewer').style.display = 'flex';
 
-            // Generate 5 random numbers for the ETA
-            const eta = Math.floor(10000 + Math.random() * 90000);
-            document.getElementById('eta').textContent = eta;
+            // Function to generate 5 random numbers
+            function generateRandomNumbers() {
+                return Math.floor(10000 + Math.random() * 90000);
+            }
+
+            // Set interval to update ETA every second
+            setInterval(function() {
+                document.getElementById('eta').textContent = generateRandomNumbers();
+            }, 1000);
         });
     </script>
 </body>
