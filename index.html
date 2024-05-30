@@ -6,6 +6,7 @@
     <title>AR Model Viewer</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap'); /* Old school computer font */
+        @import url('https://fonts.googleapis.com/css2?family=Special+Elite&display=swap'); /* Typewriter font */
 
         body, html {
             height: 100%;
@@ -46,6 +47,8 @@
             padding-top: 20px; /* Adjust padding to move content higher */
             color: white;
             text-align: center;
+            background: url('new-background.png') no-repeat center center fixed;
+            background-size: cover;
         }
         .header1 {
             font-family: 'Press Start 2P', cursive;
@@ -54,12 +57,12 @@
             -webkit-background-clip: text;
             color: transparent;
             margin-bottom: 10px;
-            text-shadow: 0 0 10px cyan; /* Blurry cyan shadow */
+            text-shadow: 0 0 10px rgba(0, 255, 255, 0.5); /* Blurry cyan shadow behind text */
         }
         .header2 {
-            font-family: Arial, sans-serif;
+            font-family: 'Special Elite', cursive;
             font-size: 1.2em; /* Smaller size */
-            color: red;
+            color: white;
             margin-top: 10px;
             margin-bottom: 20px;
         }
