@@ -93,6 +93,7 @@
         .blinking {
             font-weight: bold;
             animation: blink 1s step-start infinite;
+            font-size: 0.8em; /* Smaller size for blinking text */
         }
 
         @keyframes blink {
@@ -159,7 +160,7 @@
             Current status update:<br>
             <span class="blinking">Unidentified object approaching</span>
         </div>
-        <div class="header2-content">ETA: <span id="eta2"></span></div>
+        <div class="header2-content">ETA: -<span id="eta2"></span></div>
         <a href="https://www.instagram.com/schninnaa/">
             <img src="instar.png" class="floating-button" alt="Instagram">
         </a>
@@ -179,15 +180,16 @@
                 const hours = String(Math.floor(totalSeconds / 3600)).padStart(2, '0');
                 const minutes = String(Math.floor((totalSeconds % 3600) / 60)).padStart(2, '0');
                 const seconds = String(totalSeconds % 60).padStart(2, '0');
-                document.getElementById('eta2').textContent = `${hours}:${minutes}:${seconds}`;
+                document.getElementById('eta2').textContent = `-${hours}:${minutes}:${seconds}`;
 
                 if (totalSeconds > 0) {
                     totalSeconds -= 1;
+                    requestAnimationFrame(updateCountdown);
                 }
             }
 
             // Update the countdown every second
-            setInterval(updateCountdown, 1000);
+            requestAnimationFrame(updateCountdown);
         });
     </script>
 </body>
