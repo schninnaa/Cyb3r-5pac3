@@ -144,18 +144,22 @@
             document.getElementById('intro').style.display = 'none';
             document.getElementById('model-viewer-container').style.display = 'flex';
 
-            // Function to generate a random time in the format -12:34:26
-            function generateRandomTime() {
-                const hours = String(Math.floor(Math.random() * 24)).padStart(2, '0');
-                const minutes = String(Math.floor(Math.random() * 60)).padStart(2, '0');
-                const seconds = String(Math.floor(Math.random() * 60)).padStart(2, '0');
-                return `-${hours}:${minutes}:${seconds}`;
+            // Function to start the countdown from 12:45:53
+            let totalSeconds = 12 * 3600 + 45 * 60 + 53;
+
+            function updateCountdown() {
+                const hours = String(Math.floor(totalSeconds / 3600)).padStart(2, '0');
+                const minutes = String(Math.floor((totalSeconds % 3600) / 60)).padStart(2, '0');
+                const seconds = String(totalSeconds % 60).padStart(2, '0');
+                document.getElementById('eta2').textContent = `${hours}:${minutes}:${seconds}`;
+
+                if (totalSeconds > 0) {
+                    totalSeconds -= 1;
+                }
             }
 
-            // Set interval to update ETA every second
-            setInterval(function() {
-                document.getElementById('eta2').textContent = generateRandomTime();
-            }, 1000);
+            // Update the countdown every second
+            setInterval(updateCountdown, 1000);
         });
     </script>
 </body>
