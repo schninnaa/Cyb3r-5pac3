@@ -15,7 +15,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            background: url('blue1.png') no-repeat center center fixed;
+            background: url('blue4.png') no-repeat center center fixed;
             background-size: cover;
             flex-direction: column;
         }
@@ -43,11 +43,10 @@
             width: 100%;
             height: 80vh; /* Increased height */
             flex-direction: column;
-            align-items: center;
+            align-items: flex-start; /* Left align items */
             justify-content: flex-start; /* Move content higher */
             padding-top: 20px; /* Adjust padding to move content higher */
             color: white;
-            text-align: left; /* Left align text */
             background: url('new-background.png') no-repeat center center fixed;
             background-size: cover;
         }
@@ -73,11 +72,12 @@
         }
         .header2 {
             font-family: 'VT323', monospace; /* Old computer coding font */
-            font-size: 1.4em; /* Smaller size */
+            font-size: 1.2em; /* Smaller size */
             color: white;
             margin-top: 10px;
             margin-bottom: 20px;
             text-align: right; /* Right align text */
+            width: 100%; /* Ensure full width to align text */
         }
         .floating-button {
             position: absolute;
