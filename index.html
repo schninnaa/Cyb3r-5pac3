@@ -49,6 +49,8 @@
             color: white;
             background: url('new-background.png') no-repeat center center fixed;
             background-size: cover;
+            position: relative; /* Add relative positioning */
+            z-index: 1; /* Ensure it is behind the floating button */
         }
         .header1 {
             font-family: 'Press Start 2P', cursive;
@@ -111,6 +113,7 @@
             width: 100px; /* Increased width */
             height: auto; /* Maintain aspect ratio */
             cursor: pointer;
+            z-index: 10; /* Ensure it is in front of the model-viewer container */
         }
         @keyframes float {
             0%, 100% { transform: translateX(0); }
