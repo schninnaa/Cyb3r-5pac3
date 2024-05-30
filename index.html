@@ -54,24 +54,36 @@
         .header1 {
             font-family: 'Press Start 2P', cursive;
             font-size: 2em;
-            background: linear-gradient(white, silver);
+            background: linear-gradient(90deg, white, silver);
             -webkit-background-clip: text;
             color: transparent;
             margin-bottom: 10px;
-            text-shadow: 0 0 10px rgba(0, 255, 255, 0.5); /* Blurry cyan shadow behind text */
+            animation: gradient 3s infinite;
+        }
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
         }
         .header2 {
             font-family: 'VT323', monospace; /* Old computer coding font */
-            font-size: 1.2em; /* Smaller size */
+            font-size: 1.4em; /* Smaller size */
             color: white;
             margin-top: 10px;
             margin-bottom: 20px;
+            text-align: right; /* Right align text */
         }
         .floating-button {
             position: absolute;
             top: 100px; /* Adjust position as needed */
             left: 10px; /* Adjust position as needed */
-            width: 120px; /* Size of the PNG */
+            width: 50px; /* Size of the PNG */
             cursor: pointer;
             animation: float 5s ease-in-out infinite;
         }
