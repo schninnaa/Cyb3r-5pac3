@@ -36,35 +36,35 @@
             0%, 100% { opacity: 1; }
             50% { opacity: 0; }
         }
-        #model-viewer {
+        #model-viewer-container {
             display: none;
             width: 100%;
-            height: 100vh;
+            height: 80vh; /* Increased height */
             flex-direction: column;
             align-items: center;
-            justify-content: center;
+            justify-content: flex-start; /* Move content higher */
+            padding-top: 20px; /* Adjust padding to move content higher */
             color: white;
             text-align: center;
         }
         .header1 {
             font-family: 'Press Start 2P', cursive;
             font-size: 2em;
-            color: silver;
-            animation: shimmer 2s infinite;
-        }
-        @keyframes shimmer {
-            0% {
-                text-shadow: 0 0 5px white, 0 0 10px white, 0 0 20px silver, 0 0 30px silver, 0 0 40px silver, 0 0 50px silver, 0 0 60px silver, 0 0 70px silver;
-            }
-            100% {
-                text-shadow: 0 0 70px white, 0 0 60px white, 0 0 50px silver, 0 0 40px silver, 0 0 30px silver, 0 0 20px silver, 0 0 10px silver, 0 0 5px silver;
-            }
+            background: linear-gradient(white, silver);
+            -webkit-background-clip: text;
+            color: transparent;
+            margin-bottom: 10px;
         }
         .header2 {
             font-family: Arial, sans-serif;
-            font-size: 1em;
+            font-size: 1.5em;
             color: red;
             margin-top: 10px;
+            margin-bottom: 20px;
+        }
+        model-viewer {
+            width: 90%;
+            height: 100%; /* Make the model viewer bigger */
         }
     </style>
 </head>
@@ -73,17 +73,17 @@
         <img src="enter.png" class="button" id="enterButton" alt="Enter">
         <img src="dangersign.png" class="animated" alt="Animated">
     </div>
-    <div id="model-viewer">
+    <div id="model-viewer-container">
         <div class="header1">CYB3R 5PAC3</div>
-        <div class="header2">OBJECT ETA: -<span id="eta"></span></div>
-        <model-viewer src="earth2.glb" alt="3D model" ar ar-modes="scene-viewer quick-look" camera-controls></model-viewer>
+        <div class="header2">ETA: <span id="eta"></span></div>
+        <model-viewer src="model.glb" alt="3D model" ar ar-modes="scene-viewer quick-look" camera-controls></model-viewer>
     </div>
 
     <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
     <script>
         document.getElementById('enterButton').addEventListener('click', function() {
             document.getElementById('intro').style.display = 'none';
-            document.getElementById('model-viewer').style.display = 'flex';
+            document.getElementById('model-viewer-container').style.display = 'flex';
 
             // Function to generate 5 random numbers
             function generateRandomNumbers() {
