@@ -53,23 +53,26 @@
         .header1 {
             font-family: 'Press Start 2P', cursive;
             font-size: 2em;
-            background: linear-gradient(90deg, white, silver);
+            background: linear-gradient(90deg, #fff, #c0c0c0, #fff);
+            background-size: 200% auto;
+            color: #fff;
+            background-clip: text;
+            text-fill-color: transparent;
             -webkit-background-clip: text;
-            color: transparent;
+            -webkit-text-fill-color: transparent;
+            animation: shimmer 3s linear infinite;
             margin-bottom: 10px;
-            animation: gradient 3s infinite;
         }
-        @keyframes gradient {
+
+        @keyframes shimmer {
             0% {
                 background-position: 0% 50%;
             }
-            50% {
-                background-position: 100% 50%;
-            }
             100% {
-                background-position: 0% 50%;
+                background-position: 200% 50%;
             }
         }
+
         .header2 {
             font-family: 'VT323', monospace; /* Old computer coding font */
             font-size: 1.2em; /* Smaller size */
@@ -78,6 +81,14 @@
             margin-bottom: 20px;
             text-align: right; /* Right align text */
             width: 100%; /* Ensure full width to align text */
+        }
+        .header2-content {
+            font-family: 'VT323', monospace; /* Old computer coding font */
+            font-size: 1.2em; /* Smaller size */
+            color: white;
+            text-align: center; /* Center align text */
+            width: 100%; /* Ensure full width to align text */
+            margin-top: 20px;
         }
         .floating-button {
             position: absolute;
@@ -104,11 +115,16 @@
     </div>
     <div id="model-viewer-container">
         <div class="header1">CYB3R 5PAC3</div>
-        <div class="header2">ETA: <span id="eta"></span></div>
+        <div class="header2">
+            Welcome to the Cyb3r 5pac3<br>
+            Current status update:<br>
+            Unidentified object approaching
+        </div>
         <a href="https://www.instagram.com/schninnaa/">
             <img src="instar.png" class="floating-button" alt="Instagram">
         </a>
         <model-viewer src="earth2.glb" alt="3D model" ar ar-modes="scene-viewer quick-look" camera-controls></model-viewer>
+        <div class="header2-content">ETA: <span id="eta2"></span></div>
     </div>
 
     <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
@@ -128,6 +144,7 @@
             // Set interval to update ETA every second
             setInterval(function() {
                 document.getElementById('eta').textContent = generateRandomTime();
+                document.getElementById('eta2').textContent = `-${generateRandomTime()}`;
             }, 1000);
         });
     </script>
