@@ -78,7 +78,7 @@
             font-size: 1.6em; /* Larger size */
             color: white;
             margin-top: 10px;
-            margin-bottom: 20px;
+            margin-bottom: 10px; /* Reduced margin-bottom */
             text-align: right; /* Right align text */
             width: 100%; /* Ensure full width to align text */
         }
@@ -86,9 +86,9 @@
             font-family: 'VT323', monospace; /* Old computer coding font */
             font-size: 1.6em; /* Larger size */
             color: white;
-            text-align: center; /* Center align text */
+            text-align: right; /* Right align text */
             width: 100%; /* Ensure full width to align text */
-            margin-top: 20px;
+            margin-top: 0; /* Reduced margin-top */
         }
         .blinking {
             font-weight: bold;
@@ -129,15 +129,13 @@
         <div class="header2">
             Welcome to the Cyb3r 5pac3<br>
             Current status update:<br>
-        </div>
-        <div class="header2-content">
             <span class="blinking">Unidentified object approaching</span>
         </div>
+        <div class="header2-content">ETA: <span id="eta2"></span></div>
         <a href="https://www.instagram.com/schninnaa/">
             <img src="instar.png" class="floating-button" alt="Instagram">
         </a>
         <model-viewer src="earth2.glb" alt="3D model" ar ar-modes="scene-viewer quick-look" camera-controls></model-viewer>
-        <div class="header2-content">ETA: <span id="eta2"></span></div>
     </div>
 
     <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
