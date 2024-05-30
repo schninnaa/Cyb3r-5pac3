@@ -16,15 +16,17 @@
         }
         .container {
             text-align: center;
-            position: relative;
         }
         .button {
             width: 200px;
             cursor: pointer;
-            margin-bottom: 20px; /* Add some space between button and animated image */
+            display: block;
+            margin: 0 auto; /* Center the button */
         }
         .animated {
             width: 100px;
+            display: block;
+            margin: 20px auto 0; /* Center the animated image and add margin to top */
             animation: fade 2s infinite;
         }
         @keyframes fade {
