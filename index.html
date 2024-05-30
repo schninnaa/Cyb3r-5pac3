@@ -54,10 +54,11 @@
             -webkit-background-clip: text;
             color: transparent;
             margin-bottom: 10px;
+            text-shadow: 0 0 10px cyan; /* Blurry cyan shadow */
         }
         .header2 {
             font-family: Arial, sans-serif;
-            font-size: 1.5em;
+            font-size: 1.2em; /* Smaller size */
             color: red;
             margin-top: 10px;
             margin-bottom: 20px;
@@ -71,12 +72,12 @@
 <body>
     <div class="container" id="intro">
         <img src="enter.png" class="button" id="enterButton" alt="Enter">
-        <img src="dangersign.png" class="animated" alt="Animated">
+        <img src="dangerous.png" class="animated" alt="Animated">
     </div>
     <div id="model-viewer-container">
         <div class="header1">CYB3R 5PAC3</div>
         <div class="header2">ETA: <span id="eta"></span></div>
-        <model-viewer src="model.glb" alt="3D model" ar ar-modes="scene-viewer quick-look" camera-controls></model-viewer>
+        <model-viewer src="earth2.glb" alt="3D model" ar ar-modes="scene-viewer quick-look" camera-controls></model-viewer>
     </div>
 
     <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
@@ -85,14 +86,17 @@
             document.getElementById('intro').style.display = 'none';
             document.getElementById('model-viewer-container').style.display = 'flex';
 
-            // Function to generate 5 random numbers
-            function generateRandomNumbers() {
-                return Math.floor(10000 + Math.random() * 90000);
+            // Function to generate a random time in the format 12:34:26
+            function generateRandomTime() {
+                const hours = String(Math.floor(Math.random() * 24)).padStart(2, '0');
+                const minutes = String(Math.floor(Math.random() * 60)).padStart(2, '0');
+                const seconds = String(Math.floor(Math.random() * 60)).padStart(2, '0');
+                return `${hours}:${minutes}:${seconds}`;
             }
 
             // Set interval to update ETA every second
             setInterval(function() {
-                document.getElementById('eta').textContent = generateRandomNumbers();
+                document.getElementById('eta').textContent = generateRandomTime();
             }, 1000);
         });
     </script>
