@@ -90,6 +90,17 @@
             width: 100%; /* Ensure full width to align text */
             margin-top: 20px;
         }
+        .blinking {
+            font-weight: bold;
+            animation: blink 1s step-start infinite;
+        }
+
+        @keyframes blink {
+            50% {
+                opacity: 0;
+            }
+        }
+
         .floating-button {
             position: absolute;
             top: 100px; /* Adjust position as needed */
@@ -118,7 +129,7 @@
         <div class="header2">
             Welcome to the Cyb3r 5pac3<br>
             Current status update:<br>
-            Unidentified object approaching
+            <span class="blinking">Unidentified object approaching</span>
         </div>
         <a href="https://www.instagram.com/schninnaa/">
             <img src="instar.png" class="floating-button" alt="Instagram">
@@ -133,18 +144,17 @@
             document.getElementById('intro').style.display = 'none';
             document.getElementById('model-viewer-container').style.display = 'flex';
 
-            // Function to generate a random time in the format 12:34:26
+            // Function to generate a random time in the format -12:34:26
             function generateRandomTime() {
                 const hours = String(Math.floor(Math.random() * 24)).padStart(2, '0');
                 const minutes = String(Math.floor(Math.random() * 60)).padStart(2, '0');
                 const seconds = String(Math.floor(Math.random() * 60)).padStart(2, '0');
-                return `${hours}:${minutes}:${seconds}`;
+                return `-${hours}:${minutes}:${seconds}`;
             }
 
             // Set interval to update ETA every second
             setInterval(function() {
-                document.getElementById('eta').textContent = generateRandomTime();
-                document.getElementById('eta2').textContent = `-${generateRandomTime()}`;
+                document.getElementById('eta2').textContent = generateRandomTime();
             }, 1000);
         });
     </script>
