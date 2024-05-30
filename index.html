@@ -113,9 +113,33 @@
             0%, 100% { transform: translateX(0); }
             50% { transform: translateX(20px); } /* Adjust distance as needed */
         }
+        /* Model viewer styles */
         model-viewer {
             width: 100%;
-            height: 100%; /* Make the model viewer bigger */
+            height: 100%;
+        }
+
+        /* Desktop styles */
+        @media (min-width: 768px) {
+            #model-viewer-container {
+                align-items: center; /* Center the content horizontally */
+            }
+            model-viewer {
+                width: 80%; /* Wider model viewer on desktop */
+                height: 100%;
+            }
+        }
+
+        /* Mobile styles */
+        @media (max-width: 767px) {
+            #model-viewer-container {
+                align-items: center; /* Center the content horizontally */
+                justify-content: center; /* Center the content vertically */
+            }
+            model-viewer {
+                width: 90%; /* Center the model viewer on mobile */
+                height: 80%;
+            }
         }
     </style>
 </head>
