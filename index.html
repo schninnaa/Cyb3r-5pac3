@@ -123,9 +123,11 @@
         @media (min-width: 768px) {
             #model-viewer-container {
                 align-items: center; /* Center the content horizontally */
+                width: 90%; /* Significantly wider on desktop */
+                margin: auto;
             }
             model-viewer {
-                width: 80%; /* Wider model viewer on desktop */
+                width: 100%; /* Ensure the model viewer takes full width of the container */
                 height: 100%;
             }
         }
@@ -135,6 +137,8 @@
             #model-viewer-container {
                 align-items: center; /* Center the content horizontally */
                 justify-content: center; /* Center the content vertically */
+                width: 100%; /* Full width on mobile */
+                margin: auto;
             }
             model-viewer {
                 width: 90%; /* Center the model viewer on mobile */
