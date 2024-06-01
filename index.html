@@ -5,10 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AR Model Viewer</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap'); /* Old school computer font */
-        @import url('https://fonts.googleapis.com/css2?family=Special+Elite&display=swap'); /* Typewriter font */
-        @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap'); /* Old computer coding font */
-
+        @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Special+Elite&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
         body, html {
             height: 100%;
             margin: 0;
@@ -23,15 +22,15 @@
             text-align: center;
         }
         .button {
-            width: 300px; /* Increased size */
+            width: 300px;
             cursor: pointer;
             display: block;
-            margin: 0 auto; /* Center the button */
+            margin: 0 auto;
         }
         .animated {
-            width: 150px; /* Increased size */
+            width: 150px;
             display: block;
-            margin: 20px auto 0; /* Center the animated image and add margin to top */
+            margin: 20px auto 0;
             animation: fade 2s infinite;
         }
         @keyframes fade {
@@ -41,16 +40,16 @@
         #model-viewer-container {
             display: flex;
             width: 100%;
-            height: 80vh; /* Increased height */
+            height: 80vh;
             flex-direction: column;
-            align-items: flex-start; /* Left align items */
-            justify-content: flex-start; /* Move content higher */
-            padding-top: 20px; /* Adjust padding to move content higher */
+            align-items: flex-start;
+            justify-content: flex-start;
+            padding-top: 20px;
             color: white;
             background: url('new-background.png') no-repeat center center fixed;
             background-size: cover;
-            position: relative; /* Add relative positioning */
-            z-index: 1; /* Ensure it is behind the floating button */
+            position: relative;
+            z-index: 1;
         }
         .header1 {
             font-family: 'Press Start 2P', cursive;
@@ -65,7 +64,6 @@
             animation: shimmer 3s linear infinite;
             margin-bottom: 10px;
         }
-
         @keyframes shimmer {
             0% {
                 background-position: 0% 50%;
@@ -74,80 +72,72 @@
                 background-position: 200% 50%;
             }
         }
-
         .header2 {
-            font-family: 'VT323', monospace; /* Old computer coding font */
-            font-size: 1.6em; /* Larger size */
+            font-family: 'VT323', monospace;
+            font-size: 1.6em;
             color: white;
             margin-top: 7px;
-            margin-bottom: 10px; /* Reduced margin-bottom */
-            text-align: right; /* Right align text */
-            width: 100%; /* Ensure full width to align text */
+            margin-bottom: 10px;
+            text-align: right;
+            width: 100%;
             position: relative;
         }
         .header2-content {
-            font-family: 'VT323', monospace; /* Old computer coding font */
-            font-size: 1.6em; /* Larger size */
+            font-family: 'VT323', monospace;
+            font-size: 1.6em;
             color: white;
-            text-align: right; /* Right align text */
-            width: 100%; /* Ensure full width to align text */
-            margin-top: 0; /* Reduced margin-top */
+            text-align: right;
+            width: 100%;
+            margin-top: 0;
             position: relative;
         }
         .blinking {
             font-weight: bold;
             animation: blink 1s step-start infinite;
-            font-size: 0.9em; /* Smaller size for blinking text */
+            font-size: 0.9em;
         }
-
         @keyframes blink {
             50% {
                 opacity: 0;
             }
         }
-
         .floating-button {
             position: absolute;
-            top: 25%; /* Lowered position by 20% */
+            top: 25%;
             left: 6%;
-            width: 100px; /* Increased width */
-            height: auto; /* Maintain aspect ratio */
+            width: 100px;
+            height: auto;
             cursor: pointer;
-            z-index: 10; /* Ensure it is in front of the model-viewer container */
+            z-index: 10;
         }
         @keyframes float {
             0%, 100% { transform: translateX(0); }
-            50% { transform: translateX(20px); } /* Adjust distance as needed */
+            50% { transform: translateX(20px); }
         }
-        /* Model viewer styles */
         model-viewer {
             width: 100%;
             height: 100%;
         }
-
-        /* Desktop styles */
         @media (min-width: 768px) {
             #model-viewer-container {
-                align-items: center; /* Center the content horizontally */
-                width: 90%; /* Significantly wider on desktop */
+                align-items: center;
+                width: 90%;
                 margin: auto;
             }
             model-viewer {
-                width: 100%; /* Ensure the model viewer takes full width of the container */
+                width: 100%;
                 height: 100%;
             }
         }
-
-        /* Mobile styles */
         @media (max-width: 767px) {
             #model-viewer-container {
-                align-items: center; /* Center the content horizontally */
-                justify-content: center; /* Center the content vertically */
-                width: 100%; /* Full width on mobile */
+                align-items: center;
+                justify-content: center;
+                width: 100%;
                 margin: auto;
             }
             model-viewer {
-                width: 90%; /* Center the model viewer on mobile */
+                width: 90%;
                 height: 80%;
             }
         }
@@ -165,7 +155,8 @@
             <span class="blinking">Unidentified object approaching</span>
         </div>
         <div class="header2-content">ETA: <span id="eta2"></span></div>
-        <model-viewer src="ARobjekt.glb" alt="3D model" ar ar-modes="scene-viewer quick-look" camera-controls autoplay></model-viewer>
+        <model-viewer id="model-viewer1" src="ARobjekt.glb" alt="3D model" ar ar-modes="scene-viewer quick-look" camera-controls></model-viewer>
+        <model-viewer id="model-viewer2" src="ARobjekt.glb" alt="3D model" ar ar-modes="scene-viewer quick-look" camera-controls></model-viewer>
     </div>
 
     <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
@@ -187,6 +178,24 @@
 
         // Start the countdown immediately
         requestAnimationFrame(updateCountdown);
+
+        // Set up animations for both model viewers
+        const modelViewer1 = document.getElementById('model-viewer1');
+        const modelViewer2 = document.getElementById('model-viewer2');
+
+        modelViewer1.addEventListener('load', () => {
+            const animations = modelViewer1.model.animations;
+            animations.forEach((animation) => {
+                modelViewer1.model.playAnimation({name: animation.name, loop: true});
+            });
+        });
+
+        modelViewer2.addEventListener('load', () => {
+            const animations = modelViewer2.model.animations;
+            animations.forEach((animation) => {
+                modelViewer2.model.playAnimation({name: animation.name, loop: true});
+            });
+        });
     </script>
 </body>
 </html>
