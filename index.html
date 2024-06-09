@@ -246,9 +246,11 @@
         // Initialize arrows visibility
         document.querySelector('.nav-left').style.display = 'none';
 
-        // Scroll to top on page load
+        // Scroll to top on page load with a slight delay
         window.onload = function() {
-            window.scrollTo(0, 0);
+            setTimeout(function() {
+                window.scrollTo(0, 0);
+            }, 10);  // Adjust the delay if necessary
         };
     </script>
 </body>
