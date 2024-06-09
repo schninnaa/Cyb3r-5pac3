@@ -83,6 +83,7 @@
             text-align: right;
             width: 100%;
             position: relative;
+            margin-right: 10px; /* Add margin to the right */
         }
         .header2-content {
             font-family: 'VT323', monospace;
@@ -92,6 +93,7 @@
             width: 100%;
             margin-top: 0;
             position: relative;
+            margin-right: 10px; /* Add margin to the right */
         }
         .blinking {
             font-weight: bold;
@@ -166,7 +168,7 @@
             font-family: 'VT323', monospace;
             font-size: 1.6em;
             color: white;
-            text-align: left;
+            text-align: right;
             width: 80%;
             margin: 50px auto; /* Adjust spacing as needed */
             padding-right: 10%;
@@ -243,6 +245,11 @@
 
         // Initialize arrows visibility
         document.querySelector('.nav-left').style.display = 'none';
+
+        // Scroll to top on page load
+        window.onload = function() {
+            window.scrollTo(0, 0);
+        };
     </script>
 </body>
 </html>
