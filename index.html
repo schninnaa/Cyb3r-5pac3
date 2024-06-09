@@ -181,8 +181,8 @@
         <img src="rightarrow.png" class="nav-button nav-right" onclick="showModel('right')">
 
         <!-- Model viewers -->
-        <model-viewer id="model1" src="ARfinal.glb" alt="3D model" ar ar-modes="scene-viewer quick-look" camera-controls autoplay></model-viewer>
-        <model-viewer id="model2" src="ARfinal2.glb" alt="3D model" ar ar-modes="scene-viewer quick-look" camera-controls autoplay style="display:none;"></model-viewer>
+        <model-viewer id="model1" src="Ausstellung1.glb" ios-src="Ausstellung1.usdz" alt="3D model" ar ar-modes="scene-viewer quick-look" camera-controls autoplay></model-viewer>
+        <model-viewer id="model2" src="Ausstellung2.glb" ios-src="Ausstellung2.usdz" alt="3D model" ar ar-modes="scene-viewer quick-look" camera-controls autoplay style="display:none;"></model-viewer>
     </div>
 
     <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
@@ -209,15 +209,24 @@
         function showModel(direction) {
             const model1 = document.getElementById('model1');
             const model2 = document.getElementById('model2');
+            const leftArrow = document.querySelector('.nav-left');
+            const rightArrow = document.querySelector('.nav-right');
 
             if (direction === 'left') {
                 model1.style.display = 'block';
                 model2.style.display = 'none';
+                leftArrow.style.display = 'none';
+                rightArrow.style.display = 'block';
             } else if (direction === 'right') {
                 model1.style.display = 'none';
                 model2.style.display = 'block';
+                leftArrow.style.display = 'block';
+                rightArrow.style.display = 'none';
             }
         }
+
+        // Initialize arrows visibility
+        document.querySelector('.nav-left').style.display = 'none';
     </script>
 </body>
 </html>
