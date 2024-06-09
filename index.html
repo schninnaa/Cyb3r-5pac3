@@ -161,6 +161,17 @@
                 height: 80%;
             }
         }
+        .description {
+            font-family: 'VT323', monospace;
+            font-size: 1.6em;
+            color: white;
+            text-align: right;
+            width: 100%;
+            margin-top: 50px; /* Adjust spacing as needed */
+            margin-bottom: 20px;
+            position: relative;
+            padding-right: 10%;
+        }
     </style>
 </head>
 <body>
@@ -183,6 +194,10 @@
         <!-- Model viewers -->
         <model-viewer id="model1" src="Ausstellung1.glb" ios-src="Ausstellung1.usdz" alt="3D model" ar ar-modes="scene-viewer quick-look" camera-controls autoplay></model-viewer>
         <model-viewer id="model2" src="Ausstellung2.glb" ios-src="Ausstellung2.usdz" alt="3D model" ar ar-modes="scene-viewer quick-look" camera-controls autoplay style="display:none;"></model-viewer>
+    </div>
+
+    <div class="description">
+        Step into the "CYB3R 5PAC3" where the digital realm mirrors outer space. In this futuristic cyber world, the environment is designed to reflect the cosmic beauty of the universe. Here, system errors and glitches are not just random occurrences but predictable phenomena, like the impacts of comets in the real space. Experience the merging of technology and space, where you can foresee and navigate digital disruptions as if charting the paths of cosmic events.
     </div>
 
     <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
