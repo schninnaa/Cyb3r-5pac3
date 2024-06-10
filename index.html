@@ -173,13 +173,31 @@
         .description {
             font-family: 'VT323', monospace;
             font-size: 1.6em;
-            color: white;
+            color: white; /* Keep the initial color for browsers that don't support the clip */
             text-align: left;
             width: 80%;
             margin: 50px auto;
             padding-right: 10%;
             position: relative;
             z-index: 1;
+
+            /* Add the shiny metallic effect */
+            background: linear-gradient(90deg, #fff, #c0c0c0, #fff);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: shimmer-description 3s linear infinite;
+        }
+
+        /* Keyframe for shimmering animation */
+        @keyframes shimmer-description {
+            0% {
+                background-position: 0% 50%;
+            }
+            100% {
+                background-position: 200% 50%;
+            }
         }
     </style>
 </head>
